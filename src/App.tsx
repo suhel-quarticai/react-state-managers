@@ -1,35 +1,32 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Card } from "@/components/ui/card";
+import { GlobalHeader } from "@/components/global-header";
+import { SearchInput } from "@/components/search-input";
+import { ValuesSummary } from "@/components/values-summary";
+import { Chart } from "@/components/chart";
+import { StaticContent } from "@/components/static-content";
+
+import { depthBorderColors } from "@/utils/constants";
+import { cn } from "@/utils/ui";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <Card
+      className={cn(
+        "m-4 grid grid-cols-10 gap-2 p-2 shadow-sm",
+        depthBorderColors[0],
+      )}
+    >
+      <GlobalHeader className="col-span-full mb-4 mt-2 text-center" />
+
+      <SearchInput className="col-span-3" />
+
+      <Chart className="col-span-7" />
+
+      <ValuesSummary className="col-span-5" />
+
+      <StaticContent className="col-span-5" />
+    </Card>
+  );
 }
 
-export default App
+export default App;
