@@ -4,6 +4,7 @@ import { NumberSlider } from ".";
 
 export const NumberSliderZustand = (props: { className?: string }) => {
   const { sliderValue, setSliderValue } = useZustandStore();
+
   return (
     <NumberSlider
       className={props.className}

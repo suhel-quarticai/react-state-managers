@@ -4,6 +4,7 @@ import { NumberSlider } from ".";
 
 export const NumberSliderContext = (props: { className?: string }) => {
   const { sliderValue, setSliderValue } = useGlobalContext();
+
   return (
     <NumberSlider
       className={props.className}
