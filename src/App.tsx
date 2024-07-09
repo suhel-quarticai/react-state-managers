@@ -4,6 +4,7 @@ import { HomePage } from "./pages/home";
 import { ContextPage } from "./pages/context";
 import { ZustandPage } from "./pages/zustand";
 import { RecoilPage } from "./pages/recoil";
+import { JotaiPage } from "./pages/jotai";
 
 import { Navbar } from "@/components/navbar";
 import { ThemeProvider } from "@/components/theme";
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: "recoil",
         element: <RecoilPage />,
+      },
+      {
+        path: "jotai",
+        element: <JotaiPage />,
       },
     ],
   },

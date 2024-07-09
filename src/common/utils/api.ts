@@ -18,6 +18,8 @@ export type GithubError = {
 };
 
 export const getGithubUser = async (username: string) => {
+  if (!username) return null;
+
   try {
     const response = await fetch(`https://api.github.com/users/${username}`);
     const data = await response.json();
