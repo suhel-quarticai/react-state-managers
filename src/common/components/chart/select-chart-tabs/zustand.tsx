@@ -1,8 +1,8 @@
-import { useZustandStore } from "@/stores/zustand";
+import { useChartTabStore } from "@/stores/zustand";
 import { SelectChartTabs } from ".";
 
 export const SelectChartTabsZustand = () => {
-  const { chartTab, setChartTab } = useZustandStore();
+  const { chartTab, setChartTab } = useChartTabStore();
 
   return <SelectChartTabs chartTab={chartTab} setChartTab={setChartTab} />;
 };

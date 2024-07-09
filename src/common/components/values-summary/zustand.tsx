@@ -1,8 +1,9 @@
-import { useZustandStore } from "@/stores/zustand";
+import { useReadAllValues } from "@/stores/zustand";
 import { ValuesSummary } from ".";
 
 export const ValuesSummaryZustand = (props: { className?: string }) => {
-  const { tableColumnFilters, sliderValue, counter, timer } = useZustandStore();
+  const { tableColumnFilters, sliderValue, counter, timer } =
+    useReadAllValues();
 
   return (
     <ValuesSummary

@@ -1,9 +1,9 @@
-import { useZustandStore } from "@/stores/zustand";
+import { useSliderValueStore } from "@/stores/zustand";
 import { CounterZustand } from "../counter/zustand";
 import { NumberSlider } from ".";
 
 export const NumberSliderZustand = (props: { className?: string }) => {
-  const { sliderValue, setSliderValue } = useZustandStore();
+  const { sliderValue, setSliderValue } = useSliderValueStore();
 
   return (
     <NumberSlider

@@ -1,9 +1,9 @@
-import { useZustandStore } from "@/stores/zustand";
+import { useChartTabStore } from "@/stores/zustand";
 import { ExampleTableZustand } from "@/components/example-table/zustand";
 import { Chart } from ".";
 
 export const ChartZustand = (props: { className?: string }) => {
-  const { chartTab, setChartTab } = useZustandStore();
+  const { chartTab, setChartTab } = useChartTabStore();
 
   return (
     <Chart

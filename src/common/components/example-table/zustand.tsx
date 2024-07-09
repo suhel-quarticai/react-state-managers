@@ -1,8 +1,9 @@
-import { useZustandStore } from "@/stores/zustand";
+import { useTableColumnFiltersStore } from "@/stores/zustand";
 import { ExampleTable } from ".";
 
 export const ExampleTableZustand = (props: { className?: string }) => {
-  const { tableColumnFilters, setTableColumnFilters } = useZustandStore();
+  const { tableColumnFilters, setTableColumnFilters } =
+    useTableColumnFiltersStore();
 
   return (
     <ExampleTable
