@@ -5,6 +5,7 @@ import { ContextPage } from "./pages/context";
 import { ZustandPage } from "./pages/zustand";
 import { RecoilPage } from "./pages/recoil";
 import { JotaiPage } from "./pages/jotai";
+import { MobXPage } from "./pages/mobx";
 
 import { Navbar } from "@/components/navbar";
 import { ThemeProvider } from "@/components/theme";
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
       {
         path: "jotai",
         element: <JotaiPage />,
+      },
+      {
+        path: "mobx",
+        element: <MobXPage />,
       },
     ],
   },

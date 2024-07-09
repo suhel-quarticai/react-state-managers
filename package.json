@@ -20,6 +20,8 @@
     "clsx": "^2.1.1",
     "jotai": "^2.9.0",
     "lucide-react": "^0.402.0",
+    "mobx": "^6.13.0",
+    "mobx-react": "^9.1.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.24.1",
