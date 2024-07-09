@@ -16,10 +16,6 @@ export const navItems = [
     href: "/jotai",
   },
   {
-    label: "Redux Toolkit",
-    href: "/redux-toolkit",
-  },
-  {
     label: "MobX",
     href: "/mobx",
   },
