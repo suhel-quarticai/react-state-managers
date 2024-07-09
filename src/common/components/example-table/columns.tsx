@@ -23,6 +23,9 @@ export const columns: ColumnDef<Payment>[] = [
         </Button>
       );
     },
+    cell: ({ row }) => (
+      <span className="capitalize">{row.getValue("status")}</span>
+    ),
   },
   {
     accessorKey: "fullName",
