@@ -1,51 +1,14 @@
-import { cn } from "@/utils/ui";
 import { Link, useLocation } from "react-router-dom";
-
-const navItems = [
-  {
-    label: "Context",
-    href: "/context",
-  },
-  {
-    label: "Zustand",
-    href: "/zustand",
-  },
-  {
-    label: "Recoil",
-    href: "/recoil",
-  },
-  {
-    label: "Jotai",
-    href: "/jotai",
-  },
-  {
-    label: "Redux Toolkit",
-    href: "/redux-toolkit",
-  },
-  {
-    label: "MobX",
-    href: "/mobx",
-  },
-  {
-    label: "Easy Peasy",
-    href: "/easy-peasy",
-  },
-  {
-    label: "Valtio",
-    href: "/valtio",
-  },
-  {
-    label: "XState",
-    href: "/xstate",
-  },
-];
+import { ThemeToggle } from "@/components/theme/toggle";
+import { navItems } from "./nav-items";
+import { cn } from "@/utils/ui";
 
 export const Navbar = () => {
   const location = useLocation();
 
   return (
     <nav className="my-2 flex items-center justify-center text-center">
-      <ul className="flex w-fit items-center rounded-md border shadow-sm">
+      <ul className="ml-auto flex w-fit items-center rounded-md border shadow-sm">
         {navItems.map((item) => (
           <li
             key={item.href}
@@ -58,6 +21,8 @@ export const Navbar = () => {
           </li>
         ))}
       </ul>
+
+      <ThemeToggle className="ml-auto mr-4" />
     </nav>
   );
 };
