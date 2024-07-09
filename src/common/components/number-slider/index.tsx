@@ -13,7 +13,7 @@ export const NumberSlider = (props: { className?: string }) => {
         props.className,
       )}
     >
-      <span className="text-lg font-medium">Drag the slider</span>
+      <span className="text-lg font-medium">Drag the Slider</span>
 
       <Slider defaultValue={[33]} max={100} step={1} className="pb-4" />
 
