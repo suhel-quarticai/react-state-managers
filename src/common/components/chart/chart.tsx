@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useMemo } from "react";
 import { Bar, BarChart, CartesianGrid, XAxis } from "recharts";
 
 import {
@@ -43,9 +43,13 @@ const getChartData = () => {
   });
 };
 
-export const InteractiveChart = () => {
-  const [activeChart, setActiveChart] =
-    useState<keyof typeof chartConfig>("desktop");
+export type ChartTab = keyof typeof chartConfig;
+
+export const InteractiveChart = (props: {
+  activeChart: ChartTab;
+  setActiveChart: (chart: ChartTab) => void;
+}) => {
+  const { activeChart, setActiveChart } = props;
   const chartData = getChartData();
 
   const total = useMemo(

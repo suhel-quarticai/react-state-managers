@@ -4,7 +4,7 @@ import { Card } from "@/components/ui/card";
 import { GlobalHeader } from "@/components/global-header";
 import { SearchInputContext } from "@/components/search-input/context";
 import { ValuesSummaryContext } from "@/components/values-summary/context";
-import { Chart } from "@/components/chart";
+import { ChartContext } from "@/components/chart/context";
 import { StaticContent } from "@/components/static-content";
 
 import { depthBorderColors } from "@/utils/constants";
@@ -23,7 +23,7 @@ export const ContextPage = () => {
 
         <SearchInputContext className="col-span-3" />
 
-        <Chart className="col-span-7" />
+        <ChartContext className="col-span-7" />
 
         <ValuesSummaryContext className="col-span-5" />
 
