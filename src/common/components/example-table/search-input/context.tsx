@@ -1,21 +1,21 @@
 import { useGlobalContext } from "@/stores/context/use-context";
 
 import { NumberSliderContext } from "@/components/number-slider/context";
-import { RefetchTableData } from "@/components/refetch-data";
+import { GithubSearchContext } from "@/components/github-profile/search/context";
 import { SearchInput } from ".";
 
 export const SearchInputContext = (props: { className?: string }) => {
-  const { searchText, setSearchText } = useGlobalContext();
+  const { tableColumnFilters, setTableColumnFilters } = useGlobalContext();
 
   return (
     <SearchInput
       className={props.className}
-      value={searchText}
-      onChange={setSearchText}
+      value={tableColumnFilters[0]?.value as string}
+      onChange={(value) => setTableColumnFilters([{ id: "email", value }])}
     >
       <NumberSliderContext />
 
-      <RefetchTableData />
+      <GithubSearchContext />
     </SearchInput>
   );
 };

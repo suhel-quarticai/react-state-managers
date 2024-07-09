@@ -2,10 +2,10 @@ import { GlobalContextProvider } from "@/stores/context";
 
 import { Card } from "@/components/ui/card";
 import { GlobalHeader } from "@/components/global-header";
-import { SearchInputContext } from "@/components/search-input/context";
+import { SearchInputContext } from "@/components/example-table/search-input/context";
 import { ValuesSummaryContext } from "@/components/values-summary/context";
 import { ChartContext } from "@/components/chart/context";
-import { StaticContent } from "@/components/static-content";
+import { GithubProfileContext } from "@/components/github-profile/context";
 
 import { depthBorderColors } from "@/utils/constants";
 import { cn } from "@/utils/ui";
@@ -27,7 +27,7 @@ export const ContextPage = () => {
 
         <ValuesSummaryContext className="col-span-5" />
 
-        <StaticContent className="col-span-5" />
+        <GithubProfileContext className="col-span-5" />
       </Card>
     </GlobalContextProvider>
   );

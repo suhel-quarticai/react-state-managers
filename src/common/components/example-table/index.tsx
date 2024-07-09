@@ -1,10 +1,12 @@
+import { faker } from "@faker-js/faker";
+
 import { Card } from "@/components/ui/card";
 import { Payment, columns } from "./columns";
 import { DataTable } from "./data-table";
 
 import { cn } from "@/utils/ui";
 import { depthBorderColors } from "@/utils/constants";
-import { faker } from "@faker-js/faker";
+import type { ColumnFiltersState } from "@tanstack/react-table";
 
 const getData = (size = 0): Payment[] => {
   return new Array(size).fill(0).map(() => {
@@ -26,12 +28,25 @@ const getData = (size = 0): Payment[] => {
   });
 };
 
-export const ExampleTable = (props: { className?: string }) => {
-  const data = getData(3);
+const data = getData(4);
 
+export const ExampleTable = (props: {
+  className?: string;
+  tableColumnFilters: ColumnFiltersState;
+  setTableColumnFilters: (
+    filters:
+      | ColumnFiltersState
+      | ((prev: ColumnFiltersState) => ColumnFiltersState),
+  ) => void;
+}) => {
   return (
     <Card className={cn(depthBorderColors[2], props.className)}>
-      <DataTable columns={columns} data={data} />
+      <DataTable
+        columns={columns}
+        data={data}
+        columnFilters={props.tableColumnFilters}
+        setColumnFilters={props.setTableColumnFilters}
+      />
     </Card>
   );
 };

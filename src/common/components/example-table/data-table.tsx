@@ -2,9 +2,11 @@ import { useState } from "react";
 
 import {
   ColumnDef,
+  ColumnFiltersState,
   SortingState,
   flexRender,
   getCoreRowModel,
+  getFilteredRowModel,
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table";
@@ -21,12 +23,20 @@ interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
   className?: string;
+  columnFilters: ColumnFiltersState;
+  setColumnFilters: (
+    filters:
+      | ColumnFiltersState
+      | ((prev: ColumnFiltersState) => ColumnFiltersState),
+  ) => void;
 }
 
 export function DataTable<TData, TValue>({
   columns,
   data,
   className,
+  columnFilters,
+  setColumnFilters,
 }: DataTableProps<TData, TValue>) {
   const [sorting, setSorting] = useState<SortingState>([]);
 
@@ -36,8 +46,11 @@ export function DataTable<TData, TValue>({
     getCoreRowModel: getCoreRowModel(),
     onSortingChange: setSorting,
     getSortedRowModel: getSortedRowModel(),
+    onColumnFiltersChange: setColumnFilters,
+    getFilteredRowModel: getFilteredRowModel(),
     state: {
       sorting,
+      columnFilters,
     },
   });
 

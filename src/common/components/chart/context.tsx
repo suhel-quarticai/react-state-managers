@@ -1,6 +1,6 @@
-import { ExampleTable } from "@/components/example-table";
-import { Chart } from ".";
 import { useGlobalContext } from "@/stores/context/use-context";
+import { ExampleTableContext } from "@/components/example-table/context";
+import { Chart } from ".";
 
 export const ChartContext = (props: { className?: string }) => {
   const { chartTab, setChartTab } = useGlobalContext();
@@ -11,7 +11,7 @@ export const ChartContext = (props: { className?: string }) => {
       chartTab={chartTab}
       setChartTab={setChartTab}
     >
-      <ExampleTable />
+      <ExampleTableContext />
     </Chart>
   );
 };
