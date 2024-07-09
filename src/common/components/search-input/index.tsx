@@ -1,16 +1,16 @@
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
-import { NumberSlider } from "@/components/number-slider";
-import { RefetchTableData } from "@/components/refetch-data";
 
 import { cn } from "@/utils/ui";
 import { depthBorderColors } from "@/utils/constants";
 
-export const SearchInput = (props: {
-  className?: string;
-  value: string;
-  onChange: (value: string) => void;
-}) => {
+export const SearchInput = (
+  props: React.PropsWithChildren<{
+    className?: string;
+    value: string;
+    onChange: (value: string) => void;
+  }>,
+) => {
   return (
     <Card
       className={cn("space-y-2 p-2", depthBorderColors[1], props.className)}
@@ -24,9 +24,7 @@ export const SearchInput = (props: {
         onChange={(e) => props.onChange(e.target.value)}
       />
 
-      <NumberSlider />
-
-      <RefetchTableData />
+      {props.children}
     </Card>
   );
 };

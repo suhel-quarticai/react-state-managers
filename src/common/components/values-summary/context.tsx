@@ -2,15 +2,15 @@ import { useGlobalContext } from "@/stores/context/use-context";
 import { ValuesSummary } from ".";
 
 export const ValuesSummaryContext = (props: { className?: string }) => {
-  const { searchText } = useGlobalContext();
+  const { searchText, sliderValue, counter, timer } = useGlobalContext();
 
   return (
     <ValuesSummary
       className={props.className}
-      sliderValue={0}
+      sliderValue={sliderValue}
       searchText={searchText}
-      counter={0}
-      timer={""}
+      counter={counter}
+      timer={timer}
     />
   );
 };

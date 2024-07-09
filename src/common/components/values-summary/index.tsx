@@ -1,13 +1,14 @@
 import { cn } from "@/utils/ui";
 import { Card } from "../ui/card";
 import { depthBorderColors } from "@/utils/constants";
+import { StopWatchValue } from "../stop-watch/value";
 
 export const ValuesSummary = (props: {
   className?: string;
   sliderValue: number;
   searchText: string;
   counter: number;
-  timer: string;
+  timer: number;
 }) => {
   return (
     <Card
@@ -19,13 +20,13 @@ export const ValuesSummary = (props: {
         <Value label="Slider" value={props.sliderValue} />
         <Value label="Search" value={props.searchText} />
         <Value label="Counter" value={props.counter} />
-        <Value label="Timer" value={props.timer} />
+        <Value label="Timer" value={<StopWatchValue timer={props.timer} />} />
       </div>
     </Card>
   );
 };
 
-const Value = (props: { label: string; value: string | number }) => {
+const Value = (props: { label: string; value: React.ReactNode }) => {
   return (
     <Card className={cn("flex flex-col p-2", depthBorderColors[2])}>
       <span className="text-sm text-muted-foreground">{props.label}</span>

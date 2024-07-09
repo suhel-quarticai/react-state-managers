@@ -1,10 +1,15 @@
 import { Card } from "@/components/ui/card";
 import { Slider } from "@/components/ui/slider";
-import { Counter } from "../counter";
 import { cn } from "@/utils/ui";
 import { depthBorderColors } from "@/utils/constants";
 
-export const NumberSlider = (props: { className?: string }) => {
+export const NumberSlider = (
+  props: React.PropsWithChildren<{
+    className?: string;
+    value: number;
+    setValue: (value: number) => void;
+  }>,
+) => {
   return (
     <Card
       className={cn(
@@ -15,9 +20,15 @@ export const NumberSlider = (props: { className?: string }) => {
     >
       <span className="text-lg font-medium">Drag the Slider</span>
 
-      <Slider defaultValue={[33]} max={100} step={1} className="pb-4" />
+      <Slider
+        max={100}
+        step={1}
+        value={[props.value]}
+        onValueChange={(e) => props.setValue(e[0])}
+        className="pb-4"
+      />
 
-      <Counter />
+      {props.children}
     </Card>
   );
 };
