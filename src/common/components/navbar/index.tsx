@@ -15,11 +15,13 @@ export const Navbar = () => {
           <li
             key={item.href}
             className={cn(
-              "border-r px-4 py-1.5 text-sm last:border-r-0 hover:bg-secondary/60",
+              "border-r text-sm last:border-r-0 hover:bg-secondary/60",
               location.pathname === item.href && "bg-secondary text-primary",
             )}
           >
-            <Link to={item.href}>{item.label}</Link>
+            <Link to={item.href} className="block px-4 py-1.5">
+              {item.label}
+            </Link>
           </li>
         ))}
       </ul>
