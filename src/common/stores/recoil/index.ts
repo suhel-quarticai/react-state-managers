@@ -1,5 +1,6 @@
-import { atom, useRecoilState } from "recoil";
+import { atom, selector, useRecoilState, useRecoilValue } from "recoil";
 import { GlobalState } from "../types";
+import { getGithubUser } from "@/utils/api";
 
 export const tableColumnFilters = atom<GlobalState["tableColumnFilters"]>({
   key: "tableColumnFilters", // unique ID (with respect to other atoms/selectors)
@@ -42,3 +43,22 @@ export const timer = atom<GlobalState["timer"]>({
 });
 
 export const useTimer = () => useRecoilState(timer);
+
+export const allValues = selector({
+  key: "allValues",
+  get: ({ get }) => ({
+    tableColumnFilters: get(tableColumnFilters),
+    counter: get(counter),
+    sliderValue: get(sliderValue),
+    timer: get(timer),
+  }),
+});
+
+export const useReadAllValues = () => useRecoilValue(allValues);
+
+export const githubUser = selector({
+  key: "githubUser",
+  get: ({ get }) => getGithubUser(get(githubSearch)),
+});
+
+export const useGithubUser = () => useRecoilValue(githubUser);

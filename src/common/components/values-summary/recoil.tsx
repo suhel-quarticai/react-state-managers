@@ -1,16 +1,9 @@
-import {
-  useCounter,
-  useSliderValue,
-  useTableColumnFilters,
-  useTimer,
-} from "@/stores/recoil";
+import { useReadAllValues } from "@/stores/recoil";
 import { ValuesSummary } from ".";
 
 export const ValuesSummaryRecoil = (props: { className?: string }) => {
-  const [tableColumnFilters] = useTableColumnFilters();
-  const [sliderValue] = useSliderValue();
-  const [counter] = useCounter();
-  const [timer] = useTimer();
+  const { tableColumnFilters, sliderValue, counter, timer } =
+    useReadAllValues();
 
   return (
     <ValuesSummary

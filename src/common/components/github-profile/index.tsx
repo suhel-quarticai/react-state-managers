@@ -1,36 +1,18 @@
-import { useEffect, useState } from "react";
-
 import { Card } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
-import { GithubError, getGithubUser, type GithubUser } from "@/utils/api";
+import { GithubError, type GithubUser } from "@/utils/api";
 import { depthBorderColors } from "@/utils/constants";
 import { cn } from "@/utils/ui";
 
 export const GithubProfile = (props: {
+  user: GithubUser | GithubError | null;
   className?: string;
-  username: string;
 }) => {
-  const [user, setUser] = useState<GithubUser | GithubError | null>(null);
-
-  useEffect(() => {
-    if (!props.username) {
-      setUser(null);
-      return;
-    }
-
-    // debounce the request
-    const timeout = setTimeout(() => {
-      getGithubUser(props.username).then(setUser);
-    }, 500);
-
-    return () => clearTimeout(timeout);
-  }, [props.username]);
+  const { user, className } = props;
 
   return (
-    <Card
-      className={cn("space-y-2 p-2", depthBorderColors[1], props.className)}
-    >
+    <Card className={cn("space-y-2 p-2", depthBorderColors[1], className)}>
       <p className="text-lg font-medium">Github Profile</p>
 
       {user ? (
