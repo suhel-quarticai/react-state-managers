@@ -1,5 +1,4 @@
 import { Card } from "@/components/ui/card";
-import { GlobalHeader } from "@/components/global-header";
 import { SearchInputZustand } from "@/components/example-table/search-input/zustand";
 import { ValuesSummaryZustand } from "@/components/values-summary/zustand";
 import { ChartZustand } from "@/components/chart/zustand";
@@ -16,8 +15,6 @@ export const ZustandPage = () => {
         depthBorderColors[0],
       )}
     >
-      <GlobalHeader className="col-span-full mb-4 mt-2 text-center" />
-
       <SearchInputZustand className="col-span-3" />
 
       <ChartZustand className="col-span-7" />

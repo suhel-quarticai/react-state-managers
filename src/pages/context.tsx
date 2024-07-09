@@ -1,7 +1,6 @@
 import { GlobalContextProvider } from "@/stores/context";
 
 import { Card } from "@/components/ui/card";
-import { GlobalHeader } from "@/components/global-header";
 import { SearchInputContext } from "@/components/example-table/search-input/context";
 import { ValuesSummaryContext } from "@/components/values-summary/context";
 import { ChartContext } from "@/components/chart/context";
@@ -19,8 +18,6 @@ export const ContextPage = () => {
           depthBorderColors[0],
         )}
       >
-        <GlobalHeader className="col-span-full mb-4 mt-2 text-center" />
-
         <SearchInputContext className="col-span-3" />
 
         <ChartContext className="col-span-7" />

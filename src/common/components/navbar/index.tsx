@@ -7,7 +7,9 @@ export const Navbar = () => {
   const location = useLocation();
 
   return (
-    <nav className="my-2 flex items-center justify-center text-center">
+    <nav className="mx-4 my-2 flex items-center justify-center text-center">
+      <h1 className={"text-lg font-medium"}>React State Managers</h1>
+
       <ul className="ml-auto flex w-fit items-center rounded-md border shadow-sm">
         {navItems.map((item) => (
           <li
@@ -22,7 +24,7 @@ export const Navbar = () => {
         ))}
       </ul>
 
-      <ThemeToggle className="ml-auto mr-4" />
+      <ThemeToggle className="ml-auto" />
     </nav>
   );
 };

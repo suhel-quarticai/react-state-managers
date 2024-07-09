@@ -1,7 +1,6 @@
 import { RecoilRoot } from "recoil";
 
 import { Card } from "@/components/ui/card";
-import { GlobalHeader } from "@/components/global-header";
 import { SearchInputRecoil } from "@/components/example-table/search-input/recoil";
 import { ChartRecoil } from "@/components/chart/recoil";
 import { ValuesSummaryRecoil } from "@/components/values-summary/recoil";
@@ -19,8 +18,6 @@ export const RecoilPage = () => {
           depthBorderColors[0],
         )}
       >
-        <GlobalHeader className="col-span-full mb-4 mt-2 text-center" />
-
         <SearchInputRecoil className="col-span-3" />
 
         <ChartRecoil className="col-span-7" />
