@@ -2,7 +2,7 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
 import { Navbar } from "@/components/navbar";
 import { ThemeProvider } from "@/components/theme";
-import { lazy } from "react";
+import { Suspense, lazy } from "react";
 
 const HomePage = lazy(() =>
   import("./pages/home").then((module) => ({ default: module.HomePage })),
@@ -27,43 +27,51 @@ const Layout = () => {
   return (
     <ThemeProvider>
       <Navbar />
-      <Outlet />
+
+      <Suspense>
+        <Outlet />
+      </Suspense>
     </ThemeProvider>
   );
 };
 
-const router = createBrowserRouter([
+const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: <Layout />,
+      children: [
+        {
+          path: "/",
+          element: <HomePage />,
+        },
+        {
+          path: "context",
+          element: <ContextPage />,
+        },
+        {
+          path: "zustand",
+          element: <ZustandPage />,
+        },
+        {
+          path: "recoil",
+          element: <RecoilPage />,
+        },
+        {
+          path: "jotai",
+          element: <JotaiPage />,
+        },
+        {
+          path: "mobx",
+          element: <MobXPage />,
+        },
+      ],
+    },
+  ],
   {
-    path: import.meta.env.BASE_PATH || "/",
-    element: <Layout />,
-    children: [
-      {
-        path: "/",
-        element: <HomePage />,
-      },
-      {
-        path: "context",
-        element: <ContextPage />,
-      },
-      {
-        path: "zustand",
-        element: <ZustandPage />,
-      },
-      {
-        path: "recoil",
-        element: <RecoilPage />,
-      },
-      {
-        path: "jotai",
-        element: <JotaiPage />,
-      },
-      {
-        path: "mobx",
-        element: <MobXPage />,
-      },
-    ],
+    basename: `/${import.meta.env.BASE_PATH || ""}`,
   },
-]);
+);
 
 const App = () => {
   return <RouterProvider router={router} />;
