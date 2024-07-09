@@ -28,7 +28,7 @@
       "@/hooks/*": ["./src/common/hooks/*"],
       "@/utils/*": ["./src/common/utils/*"],
       "@/styles/*": ["./src/common/styles/*"],
-      "@/stores": ["./src/common/stores"]
+      "@/stores/*": ["./src/common/stores/*"]
     }
   },
   "include": ["src"]
