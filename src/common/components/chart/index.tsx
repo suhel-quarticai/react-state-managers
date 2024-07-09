@@ -1,5 +1,5 @@
 import { Card } from "@/components/ui/card";
-import { InteractiveChart, type ChartTab } from "./chart";
+import { InteractiveChart, type ChartTab } from "./components/chart";
 
 import { depthBorderColors } from "@/utils/constants";
 import { cn } from "@/utils/ui";

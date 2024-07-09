@@ -1,8 +1,8 @@
 import { faker } from "@faker-js/faker";
 
 import { Card } from "@/components/ui/card";
-import { Payment, columns } from "./columns";
-import { DataTable } from "./data-table";
+import { Payment, columns } from "./components/columns";
+import { DataTable } from "./components/data-table";
 
 import { cn } from "@/utils/ui";
 import { depthBorderColors } from "@/utils/constants";

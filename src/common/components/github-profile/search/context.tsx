@@ -1,5 +1,5 @@
 import { useGlobalContext } from "@/stores/context/use-context";
-import { SelectChartTabs } from "@/components/chart/select-chart-tabs";
+import { SelectChartTabsContext } from "@/components/chart/select-chart-tabs/context";
 import { GithubSearch } from ".";
 
 export const GithubSearchContext = (props: { className?: string }) => {
@@ -10,7 +10,7 @@ export const GithubSearchContext = (props: { className?: string }) => {
       value={githubSearch}
       setValue={setGithubSearch}
     >
-      <SelectChartTabs />
+      <SelectChartTabsContext />
     </GithubSearch>
   );
 };

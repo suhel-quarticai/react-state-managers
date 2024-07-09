@@ -1,7 +1,9 @@
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
-import { ContextPage } from "./pages/context";
 import { HomePage } from "./pages/home";
+import { ContextPage } from "./pages/context";
+import { ZustandPage } from "./pages/zustand";
+
 import { Navbar } from "@/components/navbar";
 import { ThemeProvider } from "@/components/theme";
 
@@ -25,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: "context",
         element: <ContextPage />,
+      },
+      {
+        path: "zustand",
+        element: <ZustandPage />,
       },
     ],
   },

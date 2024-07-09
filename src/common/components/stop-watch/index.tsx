@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { StopWatchValue } from "./value";
+import { StopWatchValue } from "./components/value";
 
 import { cn } from "@/utils/ui";
 import { depthBorderColors } from "@/utils/constants";

@@ -1,7 +1,7 @@
 import { cn } from "@/utils/ui";
 import { Card } from "../ui/card";
 import { depthBorderColors } from "@/utils/constants";
-import { StopWatchValue } from "../stop-watch/value";
+import { StopWatchValue } from "../stop-watch/components/value";
 
 export const ValuesSummary = (props: {
   className?: string;

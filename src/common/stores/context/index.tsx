@@ -1,26 +1,10 @@
 import { createContext, useState } from "react";
 import { ColumnFiltersState } from "@tanstack/react-table";
+import { GlobalState } from "../types";
 
 type ChartTab = "mobile" | "desktop" | "views";
 
-type GlobalContextType = {
-  sliderValue: number;
-  setSliderValue: (value: number) => void;
-  counter: number;
-  setCounter: (count: number) => void;
-  timer: number;
-  setTimer: (time: number | ((prev: number) => number)) => void;
-  chartTab: ChartTab;
-  setChartTab: (tab: ChartTab) => void;
-  githubSearch: string;
-  setGithubSearch: (search: string) => void;
-  tableColumnFilters: ColumnFiltersState;
-  setTableColumnFilters: (
-    filters:
-      | ColumnFiltersState
-      | ((prev: ColumnFiltersState) => ColumnFiltersState),
-  ) => void;
-};
+type GlobalContextType = GlobalState;
 
 export const GlobalContext = createContext<GlobalContextType | null>(null);
 
