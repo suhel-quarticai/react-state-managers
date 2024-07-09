@@ -21,6 +21,7 @@ const Layout = () => {
 
 const router = createBrowserRouter([
   {
+    path: import.meta.env.BASE_PATH || "/",
     element: <Layout />,
     children: [
       {
