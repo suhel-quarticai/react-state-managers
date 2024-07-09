@@ -19,12 +19,17 @@ export const GithubProfile = (props: {
       return;
     }
 
-    getGithubUser(props.username).then(setUser);
+    // debounce the request
+    const timeout = setTimeout(() => {
+      getGithubUser(props.username).then(setUser);
+    }, 500);
+
+    return () => clearTimeout(timeout);
   }, [props.username]);
 
   return (
     <Card
-      className={cn("space-y-2 p-2", depthBorderColors[2], props.className)}
+      className={cn("space-y-2 p-2", depthBorderColors[1], props.className)}
     >
       <p className="text-lg font-medium">Github Profile</p>
 
