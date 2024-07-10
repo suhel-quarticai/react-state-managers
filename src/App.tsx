@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import { createHashRouter, RouterProvider, Outlet } from "react-router-dom";
 
 import { Navbar } from "@/components/navbar";
 import { ThemeProvider } from "@/components/theme";
@@ -35,7 +35,7 @@ const Layout = () => {
   );
 };
 
-const router = createBrowserRouter(
+const router = createHashRouter(
   [
     {
       path: "/",
@@ -69,7 +69,7 @@ const router = createBrowserRouter(
     },
   ],
   {
-    basename: `/${import.meta.env.BASE_PATH || ""}`,
+    basename: import.meta.env.BASE_PATH || "",
   },
 );
 
