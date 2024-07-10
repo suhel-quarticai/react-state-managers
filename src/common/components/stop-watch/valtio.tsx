@@ -1,8 +1,8 @@
-import { setTimer, useTimerStore } from "@/stores/valtio";
+import { setTimer, useGlobalStore } from "@/stores/valtio";
 import { StopWatch } from ".";
 
 export const StopWatchValtio = (props: { className?: string }) => {
-  const { timer } = useTimerStore();
+  const { timer } = useGlobalStore();
 
   return (
     <StopWatch className={props.className} timer={timer} setTimer={setTimer} />

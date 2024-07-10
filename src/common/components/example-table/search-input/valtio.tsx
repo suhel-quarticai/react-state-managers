@@ -1,13 +1,10 @@
-import {
-  setTableColumnFilters,
-  useTableColumnFiltersStore,
-} from "@/stores/valtio";
+import { setTableColumnFilters, useGlobalStore } from "@/stores/valtio";
 import { NumberSliderValtio } from "@/components/number-slider/valtio";
 import { GithubSearchValtio } from "@/components/github-profile/search/valtio";
 import { SearchInput } from ".";
 
 export const SearchInputValtio = (props: { className?: string }) => {
-  const { tableColumnFilters } = useTableColumnFiltersStore();
+  const { tableColumnFilters } = useGlobalStore();
 
   return (
     <SearchInput

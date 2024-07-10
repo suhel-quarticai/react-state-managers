@@ -1,10 +1,8 @@
-import { useReadAllValues } from "@/stores/valtio";
+import { useGlobalStore } from "@/stores/valtio";
 import { ValuesSummary } from ".";
 
 export const ValuesSummaryValtio = (props: { className?: string }) => {
-  const {
-    values: { tableColumnFilters, sliderValue, counter, timer },
-  } = useReadAllValues();
+  const { tableColumnFilters, sliderValue, counter, timer } = useGlobalStore();
 
   return (
     <ValuesSummary

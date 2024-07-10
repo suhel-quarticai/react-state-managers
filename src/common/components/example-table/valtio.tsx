@@ -1,11 +1,8 @@
-import {
-  setTableColumnFilters,
-  useTableColumnFiltersStore,
-} from "@/stores/valtio";
+import { setTableColumnFilters, useGlobalStore } from "@/stores/valtio";
 import { ExampleTable } from ".";
 
 export const ExampleTableValtio = (props: { className?: string }) => {
-  const { tableColumnFilters } = useTableColumnFiltersStore();
+  const { tableColumnFilters } = useGlobalStore();
 
   return (
     <ExampleTable

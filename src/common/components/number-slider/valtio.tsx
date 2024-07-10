@@ -1,9 +1,9 @@
-import { setSliderValue, useSliderValueStore } from "@/stores/valtio";
+import { setSliderValue, useGlobalStore } from "@/stores/valtio";
 import { CounterValtio } from "@/components/counter/valtio";
 import { NumberSlider } from ".";
 
 export const NumberSliderValtio = (props: { className?: string }) => {
-  const { sliderValue } = useSliderValueStore();
+  const { sliderValue } = useGlobalStore();
 
   return (
     <NumberSlider
