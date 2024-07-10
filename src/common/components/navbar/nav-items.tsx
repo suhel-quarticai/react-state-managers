@@ -23,8 +23,4 @@ export const navItems = [
     label: "Valtio",
     href: "/valtio",
   },
-  {
-    label: "XState",
-    href: "/xstate",
-  },
 ];
