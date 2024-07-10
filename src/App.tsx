@@ -1,8 +1,8 @@
+import { Suspense, lazy } from "react";
 import { createHashRouter, RouterProvider, Outlet } from "react-router-dom";
 
 import { Navbar } from "@/components/navbar";
 import { ThemeProvider } from "@/components/theme";
-import { Suspense, lazy } from "react";
 
 const HomePage = lazy(() =>
   import("./pages/home").then((module) => ({ default: module.HomePage })),
@@ -21,6 +21,9 @@ const JotaiPage = lazy(() =>
 );
 const MobXPage = lazy(() =>
   import("./pages/mobx").then((module) => ({ default: module.MobXPage })),
+);
+const ValtioPage = lazy(() =>
+  import("./pages/valtio").then((module) => ({ default: module.ValtioPage })),
 );
 
 const Layout = () => {
@@ -64,6 +67,10 @@ const router = createHashRouter(
         {
           path: "mobx",
           element: <MobXPage />,
+        },
+        {
+          path: "valtio",
+          element: <ValtioPage />,
         },
       ],
     },
