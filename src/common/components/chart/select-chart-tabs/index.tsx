@@ -18,6 +18,7 @@ export const SelectChartTabs = (props: {
         <Button
           size="sm"
           className="border"
+          data-testid="desktop-button"
           variant={props.chartTab === "desktop" ? "secondary" : "outline"}
           onClick={() => props.setChartTab("desktop")}
         >
@@ -26,6 +27,7 @@ export const SelectChartTabs = (props: {
         <Button
           size="sm"
           className="border"
+          data-testid="mobile-button"
           variant={props.chartTab === "mobile" ? "secondary" : "outline"}
           onClick={() => props.setChartTab("mobile")}
         >
