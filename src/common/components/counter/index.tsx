@@ -21,6 +21,7 @@ export const Counter = (
       <div className="flex items-center justify-center gap-3">
         <Button
           title="Increment"
+          data-testid="increment-button"
           size="icon"
           variant="outline"
           className="rounded-full"
@@ -28,9 +29,10 @@ export const Counter = (
         >
           <Plus className="h-4 w-4" />
         </Button>
-        <span>{props.counter}</span>
+        <span data-testid="counter-value">{props.counter}</span>
         <Button
           title="Decrement"
+          data-testid="decrement-button"
           size="icon"
           variant="outline"
           className="rounded-full"

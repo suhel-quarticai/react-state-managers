@@ -2,6 +2,8 @@ import { afterEach, beforeAll, vi } from "vitest";
 import { cleanup } from "@testing-library/react";
 import "@testing-library/jest-dom/vitest";
 
+import * as zustandMocks from "./__mock__/zustand-store";
+
 // runs a clean after each test case (e.g. clearing jsdom)
 afterEach(() => {
   cleanup();
@@ -38,3 +40,5 @@ vi.mock("window", () => ({
     removeEventListener: vi.fn(),
   },
 }));
+
+vi.mock("zustand", () => ({ ...zustandMocks }));
