@@ -1,6 +1,6 @@
 import { useCounterStore } from "@/stores/zustand";
 import { StopWatchZustand } from "@/components/stop-watch/zustand";
-import { Counter } from "..";
+import { Counter } from ".";
 
 export const CounterZustand = (props: { className?: string }) => {
   const { counter, setCounter } = useCounterStore();
