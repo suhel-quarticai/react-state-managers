@@ -19,6 +19,7 @@ export const SearchInput = (
 
       <Input
         type="search"
+        data-testid="search-input"
         placeholder="Search email..."
         value={props.value}
         onChange={(e) => props.onChange(e.target.value)}
