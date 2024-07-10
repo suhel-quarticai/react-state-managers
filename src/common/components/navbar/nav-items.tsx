@@ -20,10 +20,6 @@ export const navItems = [
     href: "/mobx",
   },
   {
-    label: "Easy Peasy",
-    href: "/easy-peasy",
-  },
-  {
     label: "Valtio",
     href: "/valtio",
   },
