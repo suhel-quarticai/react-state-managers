@@ -22,7 +22,7 @@ export const GithubProfile = (props: {
           <GithubUser user={user} />
         )
       ) : (
-        <>Start typing in the input box</>
+        <label htmlFor="github-username">Start typing in the input box</label>
       )}
     </Card>
   );

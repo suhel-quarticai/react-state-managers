@@ -19,6 +19,7 @@ export const GithubSearch = (
 
       <div className="flex items-center gap-2">
         <Input
+          id="github-username"
           type="search"
           placeholder="Github username..."
           value={props.value}
