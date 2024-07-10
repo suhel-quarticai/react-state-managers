@@ -19,6 +19,7 @@ export const GithubSearch = (
 
       <div className="flex items-center gap-2">
         <Input
+          type="search"
           placeholder="Github username..."
           value={props.value}
           onChange={(e) => props.setValue(e.target.value)}

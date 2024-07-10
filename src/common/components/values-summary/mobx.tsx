@@ -1,17 +1,9 @@
 import { observer } from "mobx-react";
-import {
-  counterStore,
-  sliderValueStore,
-  tableColumnFiltersStore,
-  timerStore,
-} from "@/stores/mobx";
+import { globalStore } from "@/stores/mobx";
 import { ValuesSummary } from ".";
 
 export const ValuesSummaryMobx = observer((props: { className?: string }) => {
-  const { tableColumnFilters } = tableColumnFiltersStore;
-  const { sliderValue } = sliderValueStore;
-  const { counter } = counterStore;
-  const { timer } = timerStore;
+  const { tableColumnFilters, sliderValue, counter, timer } = globalStore;
 
   return (
     <ValuesSummary
