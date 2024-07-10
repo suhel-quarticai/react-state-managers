@@ -1,3 +1,5 @@
+export const navText = "React State Managers";
+
 export const depthBorderColors = {
   0: "border-blue-200 dark:border-blue-900",
   1: "border-purple-200 dark:border-purple-900",

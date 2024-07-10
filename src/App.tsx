@@ -5,25 +5,25 @@ import { Navbar } from "@/components/navbar";
 import { ThemeProvider } from "@/components/theme";
 
 const HomePage = lazy(() =>
-  import("./pages/home").then((module) => ({ default: module.HomePage })),
+  import("@/pages/home").then((module) => ({ default: module.HomePage })),
 );
 const ContextPage = lazy(() =>
-  import("./pages/context").then((module) => ({ default: module.ContextPage })),
+  import("@/pages/context").then((module) => ({ default: module.ContextPage })),
 );
 const ZustandPage = lazy(() =>
-  import("./pages/zustand").then((module) => ({ default: module.ZustandPage })),
+  import("@/pages/zustand").then((module) => ({ default: module.ZustandPage })),
 );
 const RecoilPage = lazy(() =>
-  import("./pages/recoil").then((module) => ({ default: module.RecoilPage })),
+  import("@/pages/recoil").then((module) => ({ default: module.RecoilPage })),
 );
 const JotaiPage = lazy(() =>
-  import("./pages/jotai").then((module) => ({ default: module.JotaiPage })),
+  import("@/pages/jotai").then((module) => ({ default: module.JotaiPage })),
 );
 const MobXPage = lazy(() =>
-  import("./pages/mobx").then((module) => ({ default: module.MobXPage })),
+  import("@/pages/mobx").then((module) => ({ default: module.MobXPage })),
 );
 const ValtioPage = lazy(() =>
-  import("./pages/valtio").then((module) => ({ default: module.ValtioPage })),
+  import("@/pages/valtio").then((module) => ({ default: module.ValtioPage })),
 );
 
 const Layout = () => {

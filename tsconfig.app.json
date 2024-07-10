@@ -24,6 +24,7 @@
     "noFallthroughCasesInSwitch": true,
 
     "paths": {
+      "@/pages/*": ["./src/pages/*"],
       "@/components/*": ["./src/common/components/*"],
       "@/hooks/*": ["./src/common/hooks/*"],
       "@/utils/*": ["./src/common/utils/*"],

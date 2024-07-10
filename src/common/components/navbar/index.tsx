@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { ThemeToggle } from "@/components/theme/toggle";
 import { navItems } from "./nav-items";
+import { navText } from "@/utils/constants";
 import { cn } from "@/utils/ui";
 
 export const Navbar = () => {
@@ -8,7 +9,7 @@ export const Navbar = () => {
 
   return (
     <nav className="mx-4 my-2 flex items-center justify-center text-center">
-      <h1 className={"text-lg font-medium"}>React State Managers</h1>
+      <h1 className={"text-lg font-medium"}>{navText}</h1>
 
       <ul className="ml-auto flex w-fit items-center rounded-md border shadow-sm">
         {navItems.map((item) => (

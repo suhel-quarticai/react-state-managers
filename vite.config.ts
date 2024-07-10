@@ -1,3 +1,5 @@
+/// <reference types="vitest" />
+
 import { resolve } from "path";
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
@@ -12,6 +14,7 @@ export default defineConfig({
   base: process.env.BASE_PATH || "",
   resolve: {
     alias: [
+      getAlias("@/pages", "./src/pages"),
       getAlias("@/components", "./src/common/components"),
       getAlias("@/hooks", "./src/common/hooks"),
       getAlias("@/utils", "./src/common/utils"),
@@ -22,4 +25,10 @@ export default defineConfig({
   },
 
   plugins: [react()],
+
+  test: {
+    environment: "jsdom",
+    globals: true,
+    setupFiles: "./src/common/test/setup.ts",
+  },
 });
