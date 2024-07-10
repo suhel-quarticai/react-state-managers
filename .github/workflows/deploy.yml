@@ -42,7 +42,10 @@ jobs:
       - name: Extract repository name
         run: echo "BASE_PATH=/$(echo $GITHUB_REPOSITORY | cut -d '/' -f 2)" >> $GITHUB_ENV
 
-      - name: Build my App
+      - name: Test
+        run: pnpm run test
+
+      - name: Build
         run: pnpm run build && touch ./dist/.nojekyll
 
       - name: Deploy 🚀
