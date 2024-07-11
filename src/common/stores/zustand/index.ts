@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { GlobalState } from "../types";
+import { CallbackSetter, GlobalState } from "../types";
 
 export const useChartTabStore = create<{
   chartTab: GlobalState["chartTab"];
@@ -28,11 +28,7 @@ export const useGithubSearchStore = create<{
 export const useTableColumnFiltersStore = create<{
   tableColumnFilters: GlobalState["tableColumnFilters"];
   setTableColumnFilters: (
-    filters:
-      | GlobalState["tableColumnFilters"]
-      | ((
-          filters: GlobalState["tableColumnFilters"],
-        ) => GlobalState["tableColumnFilters"]),
+    filters: CallbackSetter<GlobalState["tableColumnFilters"]>,
   ) => void;
 }>((set) => ({
   tableColumnFilters: [],
@@ -46,11 +42,7 @@ export const useTableColumnFiltersStore = create<{
 
 export const useTimerStore = create<{
   timer: GlobalState["timer"];
-  setTimer: (
-    time:
-      | GlobalState["timer"]
-      | ((time: GlobalState["timer"]) => GlobalState["timer"]),
-  ) => void;
+  setTimer: (time: CallbackSetter<GlobalState["timer"]>) => void;
 }>((set) => ({
   timer: 0,
   setTimer: (timer) =>

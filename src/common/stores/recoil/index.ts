@@ -1,6 +1,6 @@
 import { atom, selector, useRecoilState, useRecoilValue } from "recoil";
-import { GlobalState } from "../types";
 import { getGithubUser } from "@/utils/api";
+import type { GlobalState } from "../types";
 
 export const tableColumnFilters = atom<GlobalState["tableColumnFilters"]>({
   key: "tableColumnFilters", // unique ID (with respect to other atoms/selectors)

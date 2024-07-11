@@ -14,14 +14,12 @@ export type GlobalStateGetter = {
 export type GlobalStateSetter = {
   setSliderValue: (value: number) => void;
   setCounter: (count: number) => void;
-  setTimer: (time: number | ((prev: number) => number)) => void;
+  setTimer: (time: CallbackSetter<number>) => void;
   setChartTab: (tab: ChartTab) => void;
   setGithubSearch: (search: string) => void;
-  setTableColumnFilters: (
-    filters:
-      | ColumnFiltersState
-      | ((prev: ColumnFiltersState) => ColumnFiltersState),
-  ) => void;
+  setTableColumnFilters: (filters: CallbackSetter<ColumnFiltersState>) => void;
 };
 
 export type GlobalState = GlobalStateGetter & GlobalStateSetter;
+
+export type CallbackSetter<T> = T | ((prev: T) => T);

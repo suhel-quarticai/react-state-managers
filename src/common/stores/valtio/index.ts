@@ -1,5 +1,5 @@
 import { proxy, useSnapshot } from "valtio";
-import { GlobalState, GlobalStateGetter } from "../types";
+import type { CallbackSetter, GlobalState, GlobalStateGetter } from "../types";
 
 export const globalStore = proxy<GlobalStateGetter>({
   chartTab: "desktop",
@@ -31,18 +31,14 @@ export const setSliderValue = (value: number) => {
 };
 
 export const setTableColumnFilters = (
-  filters:
-    | GlobalState["tableColumnFilters"]
-    | ((
-        prev: GlobalState["tableColumnFilters"],
-      ) => GlobalState["tableColumnFilters"]),
+  filters: CallbackSetter<GlobalState["tableColumnFilters"]>,
 ) => {
   typeof filters === "function"
     ? (globalStore.tableColumnFilters = filters(globalStore.tableColumnFilters))
     : (globalStore.tableColumnFilters = filters);
 };
 
-export const setTimer = (time: number | ((prev: number) => number)) => {
+export const setTimer = (time: CallbackSetter<number>) => {
   typeof time === "function"
     ? (globalStore.timer = time(globalStore.timer))
     : (globalStore.timer = time);

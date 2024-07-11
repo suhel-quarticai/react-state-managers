@@ -1,6 +1,6 @@
 import { atom, useAtom, useAtomValue } from "jotai";
-import { GlobalState } from "../types";
 import { getGithubUser } from "@/utils/api";
+import type { GlobalState } from "../types";
 
 export const tableColumnFilters = atom<GlobalState["tableColumnFilters"]>([]);
 
