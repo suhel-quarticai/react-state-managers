@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useState } from "react";
 
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -6,6 +6,7 @@ import { StopWatchValue } from "./components/value";
 
 import { cn } from "@/utils/ui";
 import { depthBorderColors } from "@/utils/constants";
+import { Pause, Play } from "lucide-react";
 
 export const StopWatch = (
   props: React.PropsWithChildren<{
@@ -14,20 +15,21 @@ export const StopWatch = (
     setTimer: (time: number | ((prev: number) => number)) => void;
   }>,
 ) => {
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const [intervalId, setIntervalId] = useState<NodeJS.Timeout | null>(null);
 
   const handleStart = () => {
-    if (intervalRef.current) return;
+    if (intervalId) return;
 
-    intervalRef.current = setInterval(() => {
+    const newIntervalId = setInterval(() => {
       props.setTimer((prev) => prev + 10);
     }, 10);
+    setIntervalId(newIntervalId);
   };
 
   const handleStop = () => {
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-      intervalRef.current = null;
+    if (intervalId) {
+      clearInterval(intervalId);
+      setIntervalId(null);
     }
   };
 
@@ -38,11 +40,11 @@ export const StopWatch = (
 
   useEffect(() => {
     return () => {
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
+      if (intervalId) {
+        clearInterval(intervalId);
       }
     };
-  }, []);
+  }, [intervalId]);
 
   return (
     <Card
@@ -51,12 +53,27 @@ export const StopWatch = (
       <span className="text-lg font-medium">Stop Watch</span>
 
       <div className="mb-2 flex items-center justify-center gap-3">
-        <Button variant="outline" size="sm" onClick={handleStart}>
-          Start
-        </Button>
-        <Button variant="outline" size="sm" onClick={handleStop}>
-          Stop
-        </Button>
+        {intervalId ? (
+          <Button
+            title="Stop"
+            size="icon"
+            variant="outline"
+            className="rounded-full"
+            onClick={handleStop}
+          >
+            <Pause className="h-4 w-4" />
+          </Button>
+        ) : (
+          <Button
+            title="Start"
+            variant="outline"
+            size="icon"
+            className="rounded-full"
+            onClick={handleStart}
+          >
+            <Play className="h-4 w-4" />
+          </Button>
+        )}
 
         <StopWatchValue timer={props.timer} />
 

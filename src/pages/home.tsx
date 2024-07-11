@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 export const HomePage = () => {
   const navigate = useNavigate();
 
-  useEffect(() => navigate("/context"), []);
+  useEffect(() => navigate("/context"), [navigate]);
 
-  return <>x</>;
+  return <></>;
 };
